@@ -1,121 +1,94 @@
 package com.example.studentapp;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.studentapp.model.StudentLoginDetail;
-import com.example.studentapp.util.CustomToast;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
+
 
 public class MainActivity extends AppCompatActivity {
-    EditText emailId, firstName, lastName, studentId, password;
-    Button btnRegister;
-    TextView tvSignIn;
-
-    FirebaseAuth mAuth;
-    FirebaseDatabase firebaseDatabase;
+    private EditText emailEt, passwordEt;
+    private Button signInButton;
+    private TextView registerTv;
+    private ProgressDialog progressDialog;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        emailId = findViewById(R.id.editTextEmail);
-        firstName = findViewById(R.id.editTextFirstName);
-        lastName = findViewById(R.id.editTextLastName);
-        studentId = findViewById(R.id.editTextStudentID);
-        password = findViewById(R.id.editTextPassword);
-        btnRegister = findViewById(R.id.registerButton);
-        tvSignIn = findViewById(R.id.textViewSignIn);
-
-        mAuth = FirebaseAuth.getInstance();
-        firebaseDatabase = FirebaseDatabase.getInstance();
-
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        firebaseAuth = FirebaseAuth.getInstance();
+        emailEt = findViewById(R.id.editTextEmailSignIn);
+        passwordEt = findViewById(R.id.editTextPasswordSignIn);
+        signInButton = findViewById(R.id.signInButton);
+        progressDialog = new ProgressDialog(this);
+        registerTv = findViewById(R.id.textViewRegister);
+        signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                final String email = emailId.getText().toString();
-                final String fName = firstName.getText().toString();
-                final String lName = lastName.getText().toString();
-                final String sId = studentId.getText().toString();
-                final String pwd = password.getText().toString();
-
-                if(email.isEmpty())
-                {
-                    emailId.setError("Please enter your email address");
-                    emailId.requestFocus();
-                } else if(fName.isEmpty())
-                {
-                    firstName.setError("Please enter your first name");
-                    firstName.requestFocus();
-                } else if(lName.isEmpty())
-                {
-                    lastName.setError("Please enter your last name");
-                    lastName.requestFocus();
-                } else if(sId.isEmpty())
-                {
-                    studentId.setError("Please enter your student ID number");
-                    studentId.requestFocus();
-                } else if(pwd.isEmpty())
-                {
-                    password.setError("Please enter your password");
-                    password.requestFocus();
-                } else if (!(email.isEmpty() && pwd.isEmpty()))
-                {
-                    mAuth.createUserWithEmailAndPassword(email, pwd)
-                            .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if(!task.isSuccessful()){
-                                        CustomToast.createToast(MainActivity.this,
-                                                "Registration unsuccessful, please try again!"
-                                        + task.getException().getMessage(), true);
-                                    }
-                                    else
-                                    {
-                                        StudentLoginDetail studentLoginDetail = new StudentLoginDetail(fName, lName, sId);
-                                        String userID = task.getResult().getUser().getUid();
-                                        firebaseDatabase.getReference(userID).setValue(studentLoginDetail)
-                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                    @Override
-                                                    public void onSuccess(Void aVoid) {
-                                                        Intent intent = new Intent(MainActivity.this,
-                                                                HomeActivity.class);
-                                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
-                                                            Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                                        intent.putExtra("name", fName+" "+lName);
-                                                        startActivity(intent);
-                                                    }
-                                                });
-                                    }
-                                }
-                            });
-                } else {
-                    CustomToast.createToast(MainActivity.this, "Error occured!", true);
-                }
-
+            public void onClick(View v) {
+                Login();
             }
         });
 
-        tvSignIn.setOnClickListener(new View.OnClickListener() {
+        registerTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent (MainActivity.this, SignInActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(i);
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
-}
+    private void Login() {
+        String email = emailEt.getText().toString();
+        String password = passwordEt.getText().toString();
+        if(TextUtils.isEmpty(email)) {
+            emailEt.setError("Please enter your email address");
+            return;
+        }
+        else if(TextUtils.isEmpty(password)) {
+            passwordEt.setError("Please enter your password");
+            return;
+        }
+
+        progressDialog.setMessage("Please wait...");
+        progressDialog.show();
+        progressDialog.setCanceledOnTouchOutside(false);
+        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()) {
+                    Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Login unsuccessful, please try again", Toast.LENGTH_LONG).show();
+                }
+                progressDialog.dismiss();
+            }
+        });
+    }
+
+    private Boolean isValidEmail(CharSequence target) {
+        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
+    }
+    }
+
+
