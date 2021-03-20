@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="logOutButton" type="id" />
+    <item name="imageViewHome" type="id" />
+    <item name="textViewHome" type="id" />
+</resources>

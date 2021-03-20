@@ -15,11 +15,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.w3c.dom.Text;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText emailEt, fNameEt, lNameEt, sIdEt, passwordEt1, passwordEt2;
@@ -33,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
         firebaseAuth = FirebaseAuth.getInstance();
+
         emailEt = findViewById(R.id.editTextEmail);
         fNameEt = findViewById(R.id.editTextFirstName);
         lNameEt = findViewById(R.id.editTextLastName);
@@ -42,6 +44,8 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.registerButton);
         progressDialog = new ProgressDialog(this);
         signInTv = findViewById(R.id.textViewSignIn);
+
+
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,19 +111,31 @@ public class RegisterActivity extends AppCompatActivity {
         progressDialog.setMessage("Please wait...");
         progressDialog.show();
         progressDialog.setCanceledOnTouchOutside(false);
-        firebaseAuth.createUserWithEmailAndPassword(email, password1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        firebaseAuth.createUserWithEmailAndPassword(email, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()) {
-                    Toast.makeText(RegisterActivity.this, "Registration successful", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-                else{
-                    Toast.makeText(RegisterActivity.this, "Registration unsuccessful, please try again", Toast.LENGTH_LONG).show();
-                }
-                progressDialog.dismiss();
+                firebaseAuth.signInWithEmailAndPassword(emailEt.getText().toString(), passwordEt1.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        if(task.isSuccessful()) {
+                            Student student = new Student(emailEt.getText().toString(), passwordEt1.getText().toString(),
+                                    fNameEt.getText().toString(), lNameEt.getText().toString(), sIdEt.getText().toString());
+
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("_user_");
+                            databaseReference.child(firebaseAuth.getUid()).setValue(student);
+
+                            Toast.makeText(RegisterActivity.this, "Registration successful", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                        else{
+                            Toast.makeText(RegisterActivity.this, "Registration unsuccessful, please try again", Toast.LENGTH_LONG).show();
+                        }
+                        progressDialog.dismiss();
+                    }
+                });
+
             }
         });
     }

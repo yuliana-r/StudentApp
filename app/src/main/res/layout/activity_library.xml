@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LibraryActivity">
+
+    <ImageView
+        android:id="@+id/imageViewHome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        android:src="@drawable/homebg"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="71dp" />
+
+    <TextView
+        android:id="@+id/libraryTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        android:text="Library"
+        android:textSize="30dp"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/floorMapIv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewHome" />
+
+    <Button
+        android:id="@+id/viewBooksForSaleButton"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="#e76f51"
+        android:text="View books for sale"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/uploadBookForSaleButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/libraryTv" />
+
+    <Button
+        android:id="@+id/uploadBookForSaleButton"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:backgroundTint="#f4a261"
+        android:text="Upload book for sale"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewBooksForSaleButton"
+        app:layout_constraintTop_toBottomOf="@+id/libraryTv" />
+
+    <TextView
+        android:id="@+id/browseCategoryTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Browse books by category"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewBooksForSaleButton" />
+
+    <Button
+        android:id="@+id/businessBooksButton"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="#2a9d8f"
+        android:text="Business"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/computingBooksButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/browseCategoryTv" />
+
+    <Button
+        android:id="@+id/computingBooksButton"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:backgroundTint="#2a9d8f"
+        android:text="Computing"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/businessBooksButton"
+        app:layout_constraintTop_toBottomOf="@+id/browseCategoryTv" />
+
+    <Button
+        android:id="@+id/economicsBooksButton"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="#2a9d8f"
+        android:text="Economics"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/mathBooksButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/businessBooksButton" />
+
+    <Button
+        android:id="@+id/mathBooksButton"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:backgroundTint="#2a9d8f"
+        android:text="Mathematics"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/economicsBooksButton"
+        app:layout_constraintTop_toBottomOf="@+id/computingBooksButton" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewLibrary"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/economicsBooksButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

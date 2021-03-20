@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CampusMapActivity">
+
+    <ImageView
+        android:id="@+id/imageViewHome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        android:src="@drawable/homebg"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="71dp" />
+
+    <TextView
+        android:id="@+id/campusMapTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        android:text="Campus Map"
+        android:textSize="30dp"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/floorMapIv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewHome" />
+
+    <ImageView
+        android:id="@+id/floorMapIv"
+        android:layout_width="371dp"
+        android:layout_height="302dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campusMapTv"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/groundFloorButton"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:text="Ground Floor"
+        android:textSize="15dp"
+        app:backgroundTint="#264653"
+        android:textColor="#ffffff"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/floorMapIv" />
+
+    <Button
+        android:id="@+id/firstFloorButton"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:text="First floor"
+        android:textSize="15dp"
+        app:backgroundTint="#264653"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/groundFloorButton"
+        app:layout_constraintTop_toBottomOf="@+id/floorMapIv" />
+
+    <Button
+        android:id="@+id/secondFloorButton"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:text="Second floor"
+        android:textSize="15dp"
+        app:backgroundTint="#264653"
+        android:textColor="#ffffff"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groundFloorButton" />
+
+    <Button
+        android:id="@+id/thirdFloorButton"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:text="Third Floor"
+        android:textSize="15dp"
+        app:backgroundTint="#264653"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/secondFloorButton"
+        app:layout_constraintTop_toBottomOf="@+id/firstFloorButton" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
                     Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
                     startActivity(intent);
                     finish();
                 }
