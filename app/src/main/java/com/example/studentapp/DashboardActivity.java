@@ -49,6 +49,13 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
+        forumTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DashboardActivity.this, ForumActivity.class);
+            }
+        });
+
 
 
 

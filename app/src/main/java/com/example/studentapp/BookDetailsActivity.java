@@ -52,6 +52,7 @@ public class BookDetailsActivity extends AppCompatActivity {
         reserveBook = findViewById(R.id.reserveBookButton);
         cancelBook = findViewById(R.id.cancelReservationButton);
         addReview = findViewById(R.id.addReviewButton);
+
         bookDetTitle.setText(book.getBookTitle());
         bookDetAuthor.setText(book.getBookAuthor());
         bookDetISBN.setText(book.getBookISBN());

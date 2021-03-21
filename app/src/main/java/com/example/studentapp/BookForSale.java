@@ -102,4 +102,6 @@ public class BookForSale implements Parcelable {
         dest.writeString(bookDescription);
         dest.writeString(bookImgUrl);
     }
+
+
 }

@@ -7,18 +7,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -32,7 +28,7 @@ public class LibraryActivity extends AppCompatActivity implements BookAdaptor.Bo
     BookAdaptor bookAdaptor;
 
     DatabaseReference databaseReference;
-    ArrayList<Book> books = new ArrayList<>();
+    ArrayList<Book> book = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,9 +106,9 @@ public class LibraryActivity extends AppCompatActivity implements BookAdaptor.Bo
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
             for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
-                books.add(dataSnapshot.getValue(Book.class));
+                book.add(dataSnapshot.getValue(Book.class));
             }
-            bookAdaptor = new BookAdaptor(books, LibraryActivity.this);
+            bookAdaptor = new BookAdaptor(book, LibraryActivity.this);
             recyclerView.setAdapter(bookAdaptor);
         }
 
@@ -125,7 +121,7 @@ public class LibraryActivity extends AppCompatActivity implements BookAdaptor.Bo
     @Override
     public void onBookClick(int i) {
         Intent intent = new Intent(LibraryActivity.this, BookDetailsActivity.class);
-        intent.putExtra("Book", books.get(i));
+        intent.putExtra("Book", book.get(i));
         startActivity(intent);
     }
 

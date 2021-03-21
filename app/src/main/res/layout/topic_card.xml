@@ -12,7 +12,7 @@
         android:layout_margin="15dp">
 
         <TextView
-            android:id="@+id/reviewUserID"
+            android:id="@+id/topicTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -27,15 +27,38 @@
 
         <TextView
             android:id="@+id/topicAuthor"
-            android:layout_width="353dp"
-            android:layout_height="53dp"
+            android:layout_width="169dp"
+            android:layout_height="29dp"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="3dp"
+            android:layout_marginBottom="16dp"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.07"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reviewUserID" />
+            app:layout_constraintTop_toBottomOf="@+id/topicTitle" />
+
+        <TextView
+            android:id="@+id/topicReplies"
+            android:layout_width="75dp"
+            android:layout_height="28dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toEndOf="@+id/topicAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/topicDate"
+            app:layout_constraintVertical_bias="0.627" />
+
+        <TextView
+            android:id="@+id/topicDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/topicTitle"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

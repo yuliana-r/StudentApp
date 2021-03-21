@@ -12,9 +12,9 @@ import java.util.ArrayList;
 
 public class ReviewAdaptor extends RecyclerView.Adapter<ReviewAdaptor.ReviewHolder> {
 
-    ArrayList<Review> reviews;
+    ArrayList<Review> review;
 
-    public ReviewAdaptor(ArrayList<Review> _reviews) {this.reviews = _reviews;}
+    public ReviewAdaptor(ArrayList<Review> _review) {this.review = _review;}
 
     @NonNull
     @Override
@@ -26,12 +26,12 @@ public class ReviewAdaptor extends RecyclerView.Adapter<ReviewAdaptor.ReviewHold
 
     @Override
     public void onBindViewHolder (@NonNull ReviewHolder reviewHolder, int i) {
-        reviewHolder.userID.setText(reviews.get(i).getUserID());
-        reviewHolder.userReview.setText(reviews.get(i).getUserReview());
+        reviewHolder.userID.setText(review.get(i).getUserID());
+        reviewHolder.userReview.setText(review.get(i).getUserReview());
     }
 
     @Override
-    public int getItemCount() {return reviews.size();}
+    public int getItemCount() {return review.size();}
 
     public static class ReviewHolder extends RecyclerView.ViewHolder {
         TextView userID, userReview;
@@ -39,7 +39,7 @@ public class ReviewAdaptor extends RecyclerView.Adapter<ReviewAdaptor.ReviewHold
         public ReviewHolder(@NonNull View itemView) {
             super(itemView);
             userID = itemView.findViewById(R.id.reviewUserID);
-            userReview = itemView.findViewById(R.id.bookReview);
+            userReview = itemView.findViewById(R.id.topicAuthor);
         }
 
     }

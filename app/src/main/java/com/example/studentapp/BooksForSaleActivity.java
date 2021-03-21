@@ -23,7 +23,7 @@ public class BooksForSaleActivity extends AppCompatActivity implements BookForSa
     BookForSaleAdaptor bookForSaleAdaptor;
 
     DatabaseReference databaseReference;
-    ArrayList<BookForSale> booksForSale = new ArrayList<>();
+    ArrayList<BookForSale> bookForSale = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +31,18 @@ public class BooksForSaleActivity extends AppCompatActivity implements BookForSa
         setContentView(R.layout.activity_books_for_sale);
 
         recyclerView = findViewById(R.id.recyclerViewBookSale);
+        databaseReference = FirebaseDatabase.getInstance().getReference("books_for_sale");
         layoutManager = new LinearLayoutManager(BooksForSaleActivity.this);
         recyclerView.setLayoutManager(layoutManager);
-
-        databaseReference = FirebaseDatabase.getInstance().getReference("books_for_sale");
         databaseReference.addListenerForSingleValueEvent(listener);
+//
+//        BookForSale book = new BookForSale("bookid", "1984", "G.Orwell",
+//                "1234", "description goes here, selling for £90, call 999",
+//                "https://kbimages1-a.akamaihd.net/fb0c52e7-c427-4eb3-b5aa-9aafc7efea43/353/569/90/False/AhIbw1TJuje1l6QPMtht5A.jpg");
+//        bookForSale.add(book);
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("books_for_sale");
+//        databaseReference.child(book.getBookId()).setValue(book);
+
 
 
     }
@@ -44,9 +51,9 @@ public class BooksForSaleActivity extends AppCompatActivity implements BookForSa
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
             for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
-                booksForSale.add(dataSnapshot.getValue(BookForSale.class));
+                bookForSale.add(dataSnapshot.getValue(BookForSale.class));
             }
-            bookForSaleAdaptor = new BookForSaleAdaptor(booksForSale,  BooksForSaleActivity.this);
+            bookForSaleAdaptor = new BookForSaleAdaptor(bookForSale,  BooksForSaleActivity.this);
             recyclerView.setAdapter(bookForSaleAdaptor);
         }
 
@@ -58,8 +65,8 @@ public class BooksForSaleActivity extends AppCompatActivity implements BookForSa
 
     @Override
     public void onBookClick(int i) {
-        Intent intent = new Intent(BooksForSaleActivity.this, BookDetailsActivity.class);
-        intent.putExtra("Book", booksForSale.get(i));
+        Intent intent = new Intent(BooksForSaleActivity.this, BookForSaleDetailsActivity.class);
+        intent.putExtra("Book", bookForSale.get(i));
         startActivity(intent);
     }
 }

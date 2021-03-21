@@ -49,6 +49,7 @@ public class UploadBookForSaleActivity extends AppCompatActivity {
         uploadBook = findViewById(R.id.uploadBookButton);
         bookUserImage = findViewById(R.id.uploadBookImage);
 
+
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("books_for_sale");
         final String bookId = databaseReference.push().getKey();
@@ -62,8 +63,9 @@ public class UploadBookForSaleActivity extends AppCompatActivity {
         });
 
         uploadBook.setOnClickListener(v -> {
-            final StorageReference reference = storageReference.child(bookId+"."+getExtension(imageUri));
 
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("books_for_sale");
+            final StorageReference reference = storageReference.child(bookId+"."+getExtension(imageUri));
             reference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

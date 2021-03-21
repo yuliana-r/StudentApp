@@ -7,7 +7,8 @@ public class Book implements Parcelable {
     private String bookId, bookTitle, bookAuthor, bookISBN, bookDescription, bookImgUrl, bookCategory;
     boolean canReserve;
 
-    public Book(String bookId, String bookTitle, String bookAuthor, String bookISBN, String bookDescription, String bookImgUrl, String bookCategory, boolean canReserve) {
+    public Book(String bookId, String bookTitle, String bookAuthor, String bookISBN, String bookDescription,
+                String bookImgUrl, String bookCategory, boolean canReserve) {
         this.bookId = bookId;
         this.bookTitle = bookTitle;
         this.bookAuthor = bookAuthor;

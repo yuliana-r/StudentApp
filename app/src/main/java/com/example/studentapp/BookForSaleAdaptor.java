@@ -14,11 +14,11 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class BookForSaleAdaptor extends RecyclerView.Adapter<BookForSaleAdaptor.BookHolder> {
-    ArrayList<BookForSale> booksForSale;
+    ArrayList<BookForSale> bookForSale;
     BookHolder.BookInterface listener;
 
-    public BookForSaleAdaptor(ArrayList<BookForSale> _booksForSale, BookHolder.BookInterface _listener) {
-        this.booksForSale = _booksForSale;
+    public BookForSaleAdaptor(ArrayList<BookForSale> _bookForSale, BookHolder.BookInterface _listener) {
+        this.bookForSale = _bookForSale;
         listener = _listener;
     }
 
@@ -31,11 +31,14 @@ public class BookForSaleAdaptor extends RecyclerView.Adapter<BookForSaleAdaptor.
 
     @Override
     public void onBindViewHolder(@NonNull BookHolder bookHolder, int i) {
-        Picasso.get().load(booksForSale.get(i).getBookImgUrl()).fit().into(bookHolder.bookcardImage);
+        Picasso.get().load(bookForSale.get(i).getBookImgUrl()).fit().into(bookHolder.bookcardImage);
+        bookHolder.titleTv.setText(bookForSale.get(i).getBookTitle());
+        bookHolder.authorTv.setText(bookForSale.get(i).getBookAuthor());
+        bookHolder.descTv.setText(bookForSale.get(i).getBookDescription());
     }
 
     @Override
-    public int getItemCount() {return booksForSale.size();}
+    public int getItemCount() {return bookForSale.size();}
 
     public static class BookHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
         ImageView bookcardImage;

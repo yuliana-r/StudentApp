@@ -6,12 +6,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -34,10 +34,15 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.BookHolder> {
     @Override
     public void onBindViewHolder(@NonNull BookHolder bookHolder, int i) {
         Picasso.get().load(books.get(i).getBookImgUrl()).fit().into(bookHolder.bookcardImage);
+        bookHolder.titleTv.setText(books.get(i).getBookTitle());
+        bookHolder.authorTv.setText(books.get(i).getBookAuthor());
+        bookHolder.descTv.setText(books.get(i).getBookDescription());
+
     }
 
     @Override
     public int getItemCount() {return books.size();}
+
 
     public static class BookHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
         ImageView bookcardImage;
@@ -52,15 +57,16 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.BookHolder> {
             descTv = itemView.findViewById(R.id.bookDescriptionTv);
             listener = _listener;
             itemView.setOnClickListener(this);
+
         }
 
         @Override
         public void onClick(View view) {listener.onBookClick(getAdapterPosition());}
 
+
         public interface BookInterface {
-            void onBookClick(int i);
+            public void onBookClick(int i);
         }
-
-
     }
+
 }

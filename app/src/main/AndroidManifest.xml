@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentApp">
-        <activity android:name=".BookForSaleDetailsActivity"></activity>
+        <activity android:name=".ForumCreateNewPostActivity"></activity>
+        <activity android:name=".ForumLatestNewsActivity" />
+        <activity android:name=".ForumActivity" />
+        <activity android:name=".BookForSaleDetailsActivity" />
         <activity android:name=".UploadReviewActivity" />
         <activity android:name=".UploadBookForSaleActivity" />
         <activity android:name=".TimetableActivity" />
