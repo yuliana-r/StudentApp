@@ -12,7 +12,7 @@
         android:layout_margin="15dp">
 
         <ImageView
-            android:id="@+id/bookcardIv"
+            android:id="@+id/bookForSaleIv"
             android:layout_width="140dp"
             android:layout_height="200dp"
             android:layout_marginTop="15dp"
@@ -24,7 +24,7 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/bookTitleTv"
+            android:id="@+id/bookForSaleTitleTv"
             android:layout_width="224dp"
             android:layout_height="23dp"
             android:layout_marginStart="10dp"
@@ -34,11 +34,11 @@
             android:layout_marginRight="10dp"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/bookcardIv"
+            app:layout_constraintStart_toEndOf="@+id/bookForSaleIv"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/bookAuthorTv"
+            android:id="@+id/bookForSaleAuthorTv"
             android:layout_width="224dp"
             android:layout_height="23dp"
             android:layout_marginStart="10dp"
@@ -49,10 +49,10 @@
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/bookcardIv"
-            app:layout_constraintTop_toBottomOf="@+id/bookTitleTv" />
+            app:layout_constraintTop_toBottomOf="@+id/bookForSaleTitleTv" />
 
         <TextView
-            android:id="@+id/bookDescriptionTv"
+            android:id="@+id/bookForSaleDescriptionTv"
             android:layout_width="223dp"
             android:layout_height="115dp"
             android:layout_marginStart="10dp"
@@ -64,10 +64,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/bookcardIv"
-            app:layout_constraintTop_toBottomOf="@+id/bookAuthorTv"
+            app:layout_constraintStart_toEndOf="@+id/bookForSaleIv"
+            app:layout_constraintTop_toBottomOf="@+id/bookForSaleAuthorTv"
             app:layout_constraintVertical_bias="0.0" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

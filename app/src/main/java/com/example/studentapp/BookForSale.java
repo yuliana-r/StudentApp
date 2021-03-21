@@ -3,41 +3,39 @@ package com.example.studentapp;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Book implements Parcelable {
-    private String bookId, bookTitle, bookAuthor, bookISBN, bookDescription, bookImgUrl, bookCategory;
-    boolean canReserve;
+public class BookForSale implements Parcelable {
+    private String bookId, bookTitle, bookAuthor, bookISBN, bookDescription, bookImgUrl;
 
-    public Book(String bookTitle, String bookAuthor, String bookISBN, String bookDescription, String bookImgUrl, String bookCategory, boolean canReserve) {
+    public BookForSale(String bookId, String bookTitle, String bookAuthor, String bookISBN, String bookDescription, String bookImgUrl) {
         this.bookId = bookId;
         this.bookTitle = bookTitle;
         this.bookAuthor = bookAuthor;
         this.bookISBN = bookISBN;
         this.bookDescription = bookDescription;
         this.bookImgUrl = bookImgUrl;
-        this.bookCategory = bookCategory;
-        this.canReserve = canReserve;
     }
 
+    public BookForSale () {}
 
-    protected  Book (Parcel in) {
+
+    protected BookForSale(Parcel in) {
         bookId = in.readString();
         bookTitle = in.readString();
         bookAuthor = in.readString();
         bookISBN = in.readString();
         bookDescription = in.readString();
         bookImgUrl = in.readString();
-        bookCategory = in.readString();
     }
 
-    public static final Creator<Book> CREATOR = new Creator<Book>() {
+    public static final Creator<BookForSale> CREATOR = new Creator<BookForSale>() {
         @Override
-        public Book createFromParcel(Parcel in) {
-            return new Book(in);
+        public BookForSale createFromParcel(Parcel in) {
+            return new BookForSale(in);
         }
 
         @Override
-        public Book[] newArray(int size) {
-            return new Book[size];
+        public BookForSale[] newArray(int size) {
+            return new BookForSale[size];
         }
     };
 
@@ -89,13 +87,6 @@ public class Book implements Parcelable {
         this.bookImgUrl = bookImgUrl;
     }
 
-    public String getBookCategory() {
-        return bookCategory;
-    }
-
-    public void setBookCategory(String bookCategory) {
-        this.bookCategory = bookCategory;
-    }
 
     @Override
     public int describeContents() {
@@ -110,6 +101,5 @@ public class Book implements Parcelable {
         dest.writeString(bookISBN);
         dest.writeString(bookDescription);
         dest.writeString(bookImgUrl);
-        dest.writeString(bookCategory);
     }
 }

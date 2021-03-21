@@ -15,6 +15,8 @@ public class Student {
         this.studentID = studentID;
     }
 
+    public Student() {}
+
     public String getStudentEmail() {
         return studentEmail;
     }

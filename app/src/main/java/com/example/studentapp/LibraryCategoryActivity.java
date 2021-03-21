@@ -27,7 +27,7 @@ public class LibraryCategoryActivity extends AppCompatActivity implements  BookA
 
     Query databaseReference;
     ArrayList<Book> books = new ArrayList<>();
-    String category;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

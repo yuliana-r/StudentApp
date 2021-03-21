@@ -58,7 +58,7 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.BookHolder> {
         public void onClick(View view) {listener.onBookClick(getAdapterPosition());}
 
         public interface BookInterface {
-            public void onBookClick(int i);
+            void onBookClick(int i);
         }
 
 

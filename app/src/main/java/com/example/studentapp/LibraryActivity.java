@@ -10,18 +10,21 @@ import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
 public class LibraryActivity extends AppCompatActivity implements BookAdaptor.BookHolder.BookInterface {
 
-    //Button uploadBook;
+    Button uploadBook;
     Button viewBookSale, businessBooks, computingBooks, economicsBooks, mathBooks;
 
     RecyclerView recyclerView;
@@ -30,7 +33,6 @@ public class LibraryActivity extends AppCompatActivity implements BookAdaptor.Bo
 
     DatabaseReference databaseReference;
     ArrayList<Book> books = new ArrayList<>();
-    String category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +43,25 @@ public class LibraryActivity extends AppCompatActivity implements BookAdaptor.Bo
         computingBooks = findViewById(R.id.computingBooksButton);
         economicsBooks = findViewById(R.id.economicsBooksButton);
         mathBooks = findViewById(R.id.mathBooksButton);
+
         recyclerView = findViewById(R.id.recyclerViewLibrary);
         layoutManager = new LinearLayoutManager(LibraryActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         viewBookSale = findViewById(R.id.viewBooksForSaleButton);
+        uploadBook = findViewById(R.id.uploadBookForSaleButton);
 
         viewBookSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LibraryActivity.this, BooksForSaleActivity.class);
+                startActivity(i);
+            }
+        });
+
+        uploadBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LibraryActivity.this, UploadBookForSaleActivity.class);
                 startActivity(i);
             }
         });
@@ -116,6 +128,8 @@ public class LibraryActivity extends AppCompatActivity implements BookAdaptor.Bo
         intent.putExtra("Book", books.get(i));
         startActivity(intent);
     }
+
+
 
 
 }

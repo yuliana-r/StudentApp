@@ -4,13 +4,15 @@ public class Review {
 
     private String userID;
     private String userReview;
-    private static String bookID;
+    private static String bookId;
 
-    public Review(String userID, String userReview, String bookID) {
+    public Review(String userID, String userReview, String bookId) {
         this.userID = userID;
         this.userReview = userReview;
-        this.bookID = bookID;
+        this.bookId = bookId;
     }
+
+    public Review() {}
 
     public String getUserID() {
         return userID;
@@ -29,10 +31,10 @@ public class Review {
     }
 
     public static String getBookID() {
-        return bookID;
+        return bookId;
     }
 
     public static void setBookID(String bookID) {
-        Review.bookID = bookID;
+        Review.bookId = bookID;
     }
 }

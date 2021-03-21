@@ -121,7 +121,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Student student = new Student(emailEt.getText().toString(), passwordEt1.getText().toString(),
                                     fNameEt.getText().toString(), lNameEt.getText().toString(), sIdEt.getText().toString());
 
-                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("_user_");
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("student");
                             databaseReference.child(firebaseAuth.getUid()).setValue(student);
 
                             Toast.makeText(RegisterActivity.this, "Registration successful", Toast.LENGTH_LONG).show();

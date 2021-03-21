@@ -32,6 +32,15 @@ public class DashboardActivity extends AppCompatActivity {
             startActivity(i);
         });
 
+        timetableTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DashboardActivity.this, TimetableActivity.class);
+                startActivity(i);
+            }
+        });
+
+
         libraryTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
