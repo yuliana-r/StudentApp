@@ -55,6 +55,7 @@ public class UploadBookForSaleActivity extends AppCompatActivity {
         final String bookId = databaseReference.push().getKey();
 
         storageReference = firebaseStorage.getReferenceFromUrl("gs://studentapp-c7f7d.appspot.com");
+
         bookUserImage.setOnClickListener(v -> {
             Intent i = new Intent();
             i.setType("image/*");

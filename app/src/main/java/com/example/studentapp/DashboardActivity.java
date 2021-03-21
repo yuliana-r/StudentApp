@@ -53,6 +53,7 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(DashboardActivity.this, ForumActivity.class);
+                startActivity(i);
             }
         });
 
