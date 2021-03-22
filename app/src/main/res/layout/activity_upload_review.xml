@@ -17,6 +17,23 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="71dp" />
 
+    <EditText
+        android:id="@+id/addReviewAuthorEt"
+        android:layout_width="348dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginTop="100dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:gravity="fill_horizontal"
+        android:hint=" Your name"
+        android:inputType="textMultiLine"
+        android:textColor="#000000"
+        android:textColorHint="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHome" />
+
     <TextView
         android:id="@+id/textViewHome"
         android:layout_width="wrap_content"
@@ -41,19 +58,21 @@
 
     <EditText
         android:id="@+id/addReviewEt"
-        android:layout_width="355dp"
-        android:layout_height="330dp"
-        android:layout_marginTop="108dp"
+        android:layout_width="348dp"
+        android:layout_height="238dp"
+        android:layout_marginTop="30dp"
         android:background="#ffffff"
         android:ems="10"
         android:gravity="fill_horizontal"
-        android:inputType="textMultiLine"
         android:hint=" Add your review here..."
+        android:inputType="textMultiLine"
         android:textColor="#000000"
+        android:padding="8dp"
         android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHome" />
+        app:layout_constraintTop_toBottomOf="@+id/addReviewAuthorEt" />
 
     <Button
         android:id="@+id/addReviewButton"

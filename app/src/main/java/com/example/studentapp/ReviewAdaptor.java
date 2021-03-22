@@ -26,7 +26,7 @@ public class ReviewAdaptor extends RecyclerView.Adapter<ReviewAdaptor.ReviewHold
 
     @Override
     public void onBindViewHolder (@NonNull ReviewHolder reviewHolder, int i) {
-        reviewHolder.userID.setText(review.get(i).getUserID());
+        reviewHolder.userID.setText(review.get(i).getUserName());
         reviewHolder.userReview.setText(review.get(i).getUserReview());
     }
 
@@ -39,7 +39,7 @@ public class ReviewAdaptor extends RecyclerView.Adapter<ReviewAdaptor.ReviewHold
         public ReviewHolder(@NonNull View itemView) {
             super(itemView);
             userID = itemView.findViewById(R.id.reviewUserID);
-            userReview = itemView.findViewById(R.id.topicAuthor);
+            userReview = itemView.findViewById(R.id.reviewContent);
         }
 
     }

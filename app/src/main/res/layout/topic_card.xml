@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="130dp"
+    android:layout_width="380dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    app:cardCornerRadius="10dp"
+    android:layout_height="180dp"
+    android:backgroundTint="#ffffff"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="145dp"
         android:layout_margin="15dp">
 
         <TextView
             android:id="@+id/topicTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="309dp"
-            android:layout_marginRight="309dp"
+            android:layout_marginTop="16dp"
             android:text="TextView"
+            android:textColor="#2a9d8f"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,23 +35,13 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="16dp"
             android:text="TextView"
+            android:textColor="#e76f51"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.07"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topicTitle" />
-
-        <TextView
-            android:id="@+id/topicReplies"
-            android:layout_width="75dp"
-            android:layout_height="28dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
-            app:layout_constraintStart_toEndOf="@+id/topicAuthor"
-            app:layout_constraintTop_toBottomOf="@+id/topicDate"
-            app:layout_constraintVertical_bias="0.627" />
+            app:layout_constraintTop_toBottomOf="@+id/topicTitle"
+            app:layout_constraintVertical_bias="0.064" />
 
         <TextView
             android:id="@+id/topicDate"
@@ -56,9 +49,26 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="TextView"
+            android:textColor="#2a9d8f"
+            app:layout_constraintBottom_toTopOf="@+id/topicContent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.836"
             app:layout_constraintStart_toEndOf="@+id/topicTitle"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.109" />
+
+        <TextView
+            android:id="@+id/topicContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.681" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

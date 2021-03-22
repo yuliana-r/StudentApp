@@ -42,7 +42,7 @@ public class LibraryCategoryActivity extends AppCompatActivity implements  BookA
         String category = i.getStringExtra("category");
         bookCategory.setText(category);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("books_in_library").orderByChild("category").equalTo(category);
+        databaseReference = FirebaseDatabase.getInstance().getReference("books_in_library").orderByChild("bookCategory").equalTo(category);
         databaseReference.addListenerForSingleValueEvent(valueEventListener);
     }
 

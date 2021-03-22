@@ -2,15 +2,13 @@ package com.example.studentapp;
 
 public class ForumPost {
     private  String title, userID, postedDate, postContent, threadID;
-    private  int replies;
 
-    public ForumPost(String title, String userID, String postedDate, String postContent, String threadID, int replies) {
+    public ForumPost(String title, String userID, String postedDate, String postContent, String threadID) {
         this.title = title;
         this.userID = userID;
         this.postedDate = postedDate;
         this.postContent = postContent;
         this.threadID = threadID;
-        this.replies = replies;
     }
 
     public ForumPost() {}
@@ -55,11 +53,4 @@ public class ForumPost {
         this.threadID = threadID;
     }
 
-    public int getReplies() {
-        return replies;
-    }
-
-    public void setReplies(int replies) {
-        this.replies = replies;
-    }
 }

@@ -8,12 +8,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 
 public class UploadReviewActivity extends AppCompatActivity {
 
-    EditText reviewDesc;
+    EditText reviewAuthor, reviewDesc;
     Button addReview;
     DatabaseReference databaseReference;
 
@@ -22,6 +24,7 @@ public class UploadReviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_review);
 
+        reviewAuthor = findViewById(R.id.addReviewAuthorEt);
         reviewDesc = findViewById(R.id.addReviewEt);
         addReview = findViewById(R.id.addReviewButton);
         databaseReference = FirebaseDatabase.getInstance().getReference("book_reviews");
@@ -30,9 +33,10 @@ public class UploadReviewActivity extends AppCompatActivity {
         addReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Review review = new Review(Session.student.getStudentID(), reviewDesc.getText().toString(), bookId);
+                Review review = new Review(reviewAuthor.getText().toString(), reviewDesc.getText().toString(), bookId);
                 databaseReference.child(bookId).setValue(review);
-                Toast.makeText(UploadReviewActivity.this, "Your review has been added successfully", Toast.LENGTH_LONG).show();
+                Toast.makeText(UploadReviewActivity.this, "Your review has been added successfully",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }

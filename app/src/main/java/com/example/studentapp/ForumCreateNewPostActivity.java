@@ -36,7 +36,6 @@ public class ForumCreateNewPostActivity extends AppCompatActivity implements Top
     TextView categoryDisplay;
     RecyclerView recyclerView;
     ArrayList<ForumPost> forumPosts = new ArrayList<>();
-    ValueEventListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +68,7 @@ public class ForumCreateNewPostActivity extends AppCompatActivity implements Top
                 date = calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get((Calendar.MONTH + 1)) + "/" +
                         calendar.get(Calendar.YEAR) + "-" + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
                 databaseReference.child(threadId).setValue(new ForumPost(postTitle.getText().toString(), postAuthor.getText().toString(),
-                        date, postContent.getText().toString(), threadId, 0)).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        date, postContent.getText().toString(), threadId)).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(ForumCreateNewPostActivity.this, "Your post has been added successfully",

@@ -37,6 +37,7 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.BookHolder> {
         bookHolder.titleTv.setText(books.get(i).getBookTitle());
         bookHolder.authorTv.setText(books.get(i).getBookAuthor());
         bookHolder.descTv.setText(books.get(i).getBookDescription());
+        bookHolder.isbnTv.setText(books.get(i).getBookISBN());
 
     }
 
@@ -46,7 +47,7 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.BookHolder> {
 
     public static class BookHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
         ImageView bookcardImage;
-        TextView titleTv, authorTv, descTv;
+        TextView titleTv, authorTv, descTv, isbnTv;
         BookInterface listener;
 
         public BookHolder (@NonNull View itemView, BookInterface _listener) {
@@ -55,6 +56,7 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.BookHolder> {
             titleTv = itemView.findViewById(R.id.bookTitleTv);
             authorTv = itemView.findViewById(R.id.bookAuthorTv);
             descTv = itemView.findViewById(R.id.bookDescriptionTv);
+            isbnTv = itemView.findViewById(R.id.bookAuthorISBN);
             listener = _listener;
             itemView.setOnClickListener(this);
 

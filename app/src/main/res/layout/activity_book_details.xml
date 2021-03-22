@@ -46,6 +46,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="50dp"
             android:text="TextView"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,6 +58,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="25dp"
             android:text="TextView"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bookDetailsTitle" />
 
@@ -68,6 +70,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="25dp"
             android:text="TextView"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bookDetailsAuthor" />
 
@@ -78,6 +81,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:text="TextView"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

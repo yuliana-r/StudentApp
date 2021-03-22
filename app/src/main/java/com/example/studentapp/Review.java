@@ -1,25 +1,24 @@
 package com.example.studentapp;
 
 public class Review {
-
-    private String userID;
+    private String userName;
     private String userReview;
     private static String bookId;
 
-    public Review(String userID, String userReview, String bookId) {
-        this.userID = userID;
+    public Review(String userName, String userReview, String bookId) {
+        this.userName = userName;
         this.userReview = userReview;
         this.bookId = bookId;
     }
 
     public Review() {}
 
-    public String getUserID() {
-        return userID;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getUserReview() {
