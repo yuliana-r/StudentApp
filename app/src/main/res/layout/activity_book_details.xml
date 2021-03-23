@@ -20,8 +20,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="390dp"
-        android:layout_height="350dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="390dp"
+        android:layout_marginTop="30dp"
         android:background="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,51 +41,51 @@
         <TextView
             android:id="@+id/bookDetailsTitle"
             android:layout_width="218dp"
-            android:layout_height="21dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="50dp"
             android:text="TextView"
-            android:textColor="#000000"
+            android:textColor="#2a9d8f"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/bookDetailsAuthor"
             android:layout_width="218dp"
-            android:layout_height="21dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="25dp"
             android:text="TextView"
-            android:textColor="#000000"
+            android:textColor="#e76f51"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bookDetailsTitle" />
 
         <TextView
             android:id="@+id/bookDetailsISBN"
             android:layout_width="218dp"
-            android:layout_height="21dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="25dp"
             android:text="TextView"
-            android:textColor="#000000"
+            android:textColor="#264653"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bookDetailsAuthor" />
 
         <TextView
             android:id="@+id/bookDetailsDesc"
             android:layout_width="360dp"
-            android:layout_height="124dp"
-            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:layout_marginBottom="15dp"
             android:text="TextView"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bookDetailsISBN" />
+            app:layout_constraintTop_toBottomOf="@+id/bookDetailsImage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
@@ -133,12 +133,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewReviews"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="220dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addReviewButton"
+        app:layout_constraintTop_toTopOf="@+id/imageViewHome"
         app:layout_constraintVertical_bias="1.0" />
 
 

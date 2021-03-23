@@ -10,10 +10,15 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 public class DashboardActivity extends AppCompatActivity {
     TextView campusMapTv, timetableTv, libraryTv, forumTv, activitiesTv, moodleTv;
     private Button logoutButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
@@ -26,6 +31,8 @@ public class DashboardActivity extends AppCompatActivity {
         forumTv = findViewById(R.id.forumButton);
         activitiesTv = findViewById(R.id.activitiesButton);
         moodleTv = findViewById(R.id.moodleButton);
+
+
 
         campusMapTv.setOnClickListener((v) -> {
             Intent i = new Intent(DashboardActivity.this, CampusMapActivity.class);
@@ -56,18 +63,6 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

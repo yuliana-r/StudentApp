@@ -40,7 +40,7 @@ public class BooksForSaleActivity extends AppCompatActivity implements BookForSa
 //                "1234", "description goes here, selling for £90, call 999",
 //                "https://kbimages1-a.akamaihd.net/fb0c52e7-c427-4eb3-b5aa-9aafc7efea43/353/569/90/False/AhIbw1TJuje1l6QPMtht5A.jpg");
 //        bookForSale.add(book);
-//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("books_for_sale");
+ //       DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("books_for_sale");
 //        databaseReference.child(book.getBookId()).setValue(book);
 
 
