@@ -22,8 +22,10 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class ForumCreateNewPostActivity extends AppCompatActivity implements TopicAdaptor.TopicsAdaptor.TopicHolderClick {
     TopicAdaptor topicsAdaptor;
@@ -55,6 +57,12 @@ public class ForumCreateNewPostActivity extends AppCompatActivity implements Top
         if (category.equals("Latest News")) {
             databaseReference = FirebaseDatabase.getInstance().getReference("forum_latest_news");
             categoryDisplay.setText("Latest News");
+        } else if (category.equals("Academic Life")) {
+            databaseReference = FirebaseDatabase.getInstance().getReference("forum_academic_life");
+            categoryDisplay.setText("Academic Life");
+        } else if (category.equals("Off-topic")) {
+            databaseReference = FirebaseDatabase.getInstance().getReference("forum_offtopic");
+            categoryDisplay.setText("Off-topic");
         }
 
         addPost.setOnClickListener(new View.OnClickListener() {
@@ -65,8 +73,10 @@ public class ForumCreateNewPostActivity extends AppCompatActivity implements Top
                 String date;
                 final String threadId = databaseReference.push().getKey();
 
-                date = calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get((Calendar.MONTH + 1)) + "/" +
-                        calendar.get(Calendar.YEAR) + "-" + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
+                Date postDate = Calendar.getInstance().getTime();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                date = simpleDateFormat.format(postDate) + "----"+calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);;
+
 
                 databaseReference.child(threadId).setValue(new ForumPost(postTitle.getText().toString(), postAuthor.getText().toString(),
                         date, postContent.getText().toString(), threadId)).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -80,7 +90,7 @@ public class ForumCreateNewPostActivity extends AppCompatActivity implements Top
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(ForumCreateNewPostActivity.this, "Unsuccessful", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ForumCreateNewPostActivity.this, "Unsuccessful", Toast.LENGTH_SHORT).show();
                     }
                 });
             }

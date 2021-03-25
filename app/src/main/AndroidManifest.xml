@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.studentapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentApp">
-        <activity android:name=".ActivitiesActivity"></activity>
+        <activity android:name=".ForumFAQActivity"></activity>
+        <activity android:name=".ForumRulesGuidesActivity" />
+        <activity android:name=".ForumOffTopicActivity" />
+        <activity android:name=".ForumAcademicActivity" />
+        <activity android:name=".ActivitiesActivity" />
         <activity android:name=".ForumRepliesActivity" />
         <activity android:name=".ForumCreateNewPostActivity" />
         <activity android:name=".ForumLatestNewsActivity" />

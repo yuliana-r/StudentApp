@@ -18,6 +18,63 @@
         tools:layout_editor_absoluteY="71dp" />
 
 
+    <Button
+        android:id="@+id/faqsButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="FAQ"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:backgroundTint="#2a9d8f"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rulesGuidesButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/rulesGuidesButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Rules and Guidelines"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:backgroundTint="#2a9d8f"
+        app:layout_constraintBottom_toTopOf="@+id/faqsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/offTopicButton" />
+
+    <Button
+        android:id="@+id/academicButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Academic life"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:backgroundTint="#2a9d8f"
+        app:layout_constraintBottom_toTopOf="@+id/offTopicButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/latestNewsButton" />
+
+    <Button
+        android:id="@+id/offTopicButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Off-topic"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:backgroundTint="#2a9d8f"
+        app:layout_constraintBottom_toTopOf="@+id/rulesGuidesButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/academicButton" />
+
     <TextView
         android:id="@+id/textViewHome"
         android:layout_width="wrap_content"
@@ -39,15 +96,14 @@
         android:id="@+id/latestNewsButton"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="15dp"
         android:text="Latest News"
         android:textColor="#ffffff"
         android:textSize="15dp"
         app:backgroundTint="#2a9d8f"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/academicButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHome"
-        app:layout_constraintVertical_bias="0.099" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewHome" />
 </androidx.constraintlayout.widget.ConstraintLayout>

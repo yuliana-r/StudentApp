@@ -6,21 +6,21 @@
     android:layout_marginTop="5dp"
     android:layout_marginBottom="5dp"
     app:cardCornerRadius="10dp"
-    android:layout_height="180dp"
+    android:layout_height="wrap_content"
     android:backgroundTint="#ffffff"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="145dp"
+        android:layout_height="wrap_content"
         android:layout_margin="15dp">
 
         <TextView
             android:id="@+id/topicTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:text="TextView"
             android:textColor="#2a9d8f"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,9 +31,8 @@
         <TextView
             android:id="@+id/topicAuthor"
             android:layout_width="169dp"
-            android:layout_height="29dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="16dp"
             android:text="TextView"
             android:textColor="#e76f51"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +40,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topicTitle"
-            app:layout_constraintVertical_bias="0.064" />
+            app:layout_constraintVertical_bias="0.027" />
 
         <TextView
             android:id="@+id/topicDate"
@@ -61,14 +60,14 @@
             android:id="@+id/topicContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="TextView"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.681" />
+            app:layout_constraintTop_toBottomOf="@+id/topicAuthor" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

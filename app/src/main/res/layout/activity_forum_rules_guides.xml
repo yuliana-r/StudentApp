@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#e8e8e4"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ForumRulesGuidesActivity">
+
+        <TextView
+            android:id="@+id/textViewHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="150dp"
+            android:layout_marginRight="150dp"
+            android:autoSizeTextType="uniform"
+            android:padding="20dp"
+            android:textStyle="bold"
+            android:text="Community guidelines"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:text="The community guidelines are the rules that apply to the whole site. The main rules to stick to are:
+\n \n •	Be friendly – This Forum is a friendly place. Let’s keep it that way by treating everyone with respect.
+\n \n •	Keep it clean - This site is for everyone, so please make your posts suitable for people of all ages.
+\n \n •	Stay on topic - The conversation flows better if you keep your posts relevant and constructive.
+\n \n •	No cheating - The site is not here to help anyone gain an unfair advantage in exams, interviews and the like.
+\n \n •	No advertising - Please don’t make posts that are purely for promotional purposes
+\n \n •	Nothing illegal - If you’re unsure whether your post might fall foul of the law, please err on the side of caution!
+"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewHome" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
