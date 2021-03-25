@@ -46,6 +46,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation platform('com.google.firebase:firebase-bom:26.5.0')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 
 }
 apply plugin: 'com.google.gms.google-services'

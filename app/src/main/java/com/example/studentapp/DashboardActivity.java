@@ -64,6 +64,14 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
+        activitiesTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DashboardActivity.this, ActivitiesActivity.class);
+                startActivity(i);
+            }
+        });
+
 
 
 

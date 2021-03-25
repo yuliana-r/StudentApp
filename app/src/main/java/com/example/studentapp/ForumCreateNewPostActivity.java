@@ -67,6 +67,7 @@ public class ForumCreateNewPostActivity extends AppCompatActivity implements Top
 
                 date = calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get((Calendar.MONTH + 1)) + "/" +
                         calendar.get(Calendar.YEAR) + "-" + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
+
                 databaseReference.child(threadId).setValue(new ForumPost(postTitle.getText().toString(), postAuthor.getText().toString(),
                         date, postContent.getText().toString(), threadId)).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
