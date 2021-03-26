@@ -1,14 +1,16 @@
 package com.example.studentapp;
 
+//This class is used to store information on library books reviews
 public class Review {
     private String userName;
     private String userReview;
     private static String bookId;
 
     public Review(String bookId, String userName, String userReview) {
+        this.bookId = bookId;
         this.userName = userName;
         this.userReview = userReview;
-        this.bookId = bookId;
+
     }
 
     public Review() {}

@@ -54,6 +54,7 @@ public class ForumCreateNewPostActivity extends AppCompatActivity implements Top
             category = extras.getString("Category");
         }
 
+        //Checking the category of each post before posting in order to save it in the right node
         if (category.equals("Latest News")) {
             databaseReference = FirebaseDatabase.getInstance().getReference("forum_latest_news");
             categoryDisplay.setText("Latest News");
@@ -73,11 +74,12 @@ public class ForumCreateNewPostActivity extends AppCompatActivity implements Top
                 String date;
                 final String threadId = databaseReference.push().getKey();
 
+                //Get the date and time when the post was added by the user to the forum
                 Date postDate = Calendar.getInstance().getTime();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 date = simpleDateFormat.format(postDate) + "----"+calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);;
 
-
+                //Saving the ForumPost object to Firebase
                 databaseReference.child(threadId).setValue(new ForumPost(postTitle.getText().toString(), postAuthor.getText().toString(),
                         date, postContent.getText().toString(), threadId)).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -90,6 +92,7 @@ public class ForumCreateNewPostActivity extends AppCompatActivity implements Top
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        //Error message will be prompted
                         Toast.makeText(ForumCreateNewPostActivity.this, "Unsuccessful", Toast.LENGTH_SHORT).show();
                     }
                 });

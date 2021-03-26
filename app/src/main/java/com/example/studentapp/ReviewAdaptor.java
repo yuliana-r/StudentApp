@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+//BookAdaptor that displays library books reviews
 public class ReviewAdaptor extends RecyclerView.Adapter<ReviewAdaptor.ReviewHolder> {
 
     ArrayList<Review> review;

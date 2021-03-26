@@ -3,7 +3,6 @@ package com.example.studentapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.transition.Slide;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -18,6 +17,8 @@ public class ActivitiesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activities);
+
+        //Creating an image slider and setting the images for each slide from R.drawable
 
         ImageSlider imageSlider = findViewById(R.id.activitiesSlider);
         List<SlideModel> imageList = new ArrayList<SlideModel>();

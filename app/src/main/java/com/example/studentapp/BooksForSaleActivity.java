@@ -16,6 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//This activity displays all books for sale in a RecyclerView
 public class BooksForSaleActivity extends AppCompatActivity implements BookForSaleAdaptor.BookHolder.BookInterface {
 
     RecyclerView recyclerView;
@@ -35,18 +36,10 @@ public class BooksForSaleActivity extends AppCompatActivity implements BookForSa
         layoutManager = new LinearLayoutManager(BooksForSaleActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         databaseReference.addListenerForSingleValueEvent(listener);
-//
-//        BookForSale book = new BookForSale("bookid", "1984", "G.Orwell",
-//                "1234", "description goes here, selling for £90, call 999",
-//                "https://kbimages1-a.akamaihd.net/fb0c52e7-c427-4eb3-b5aa-9aafc7efea43/353/569/90/False/AhIbw1TJuje1l6QPMtht5A.jpg");
-//        bookForSale.add(book);
- //       DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("books_for_sale");
-//        databaseReference.child(book.getBookId()).setValue(book);
-
-
 
     }
 
+    //Adding a ValueEventListener for books for sale
     ValueEventListener listener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {

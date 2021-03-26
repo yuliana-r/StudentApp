@@ -1,5 +1,6 @@
 package com.example.studentapp;
 
+//This class is used to store information about forum posts
 public class ForumPost {
     private  String title, userID, postedDate, postContent, threadID;
 

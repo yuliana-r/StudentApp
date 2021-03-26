@@ -26,6 +26,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+//This activity is used for uploading books for sale
 public class UploadBookForSaleActivity extends AppCompatActivity {
 
     EditText titleBookUpload, authorBookUpload, isbnBookUpload, descBookUpload;
@@ -49,10 +50,13 @@ public class UploadBookForSaleActivity extends AppCompatActivity {
         uploadBook = findViewById(R.id.uploadBookButton);
         bookUserImage = findViewById(R.id.uploadBookImage);
 
+
+        //Getting the database reference to save books for sale in the "books_for_sale" node
         databaseReference = FirebaseDatabase.getInstance().getReference("books_for_sale");
         final String bookId = databaseReference.push().getKey();
         storageReference = FirebaseStorage.getInstance().getReference("books");
 
+        //Prompt user to upload image from device
         bookUserImage.setOnClickListener(v -> {
             Intent i = new Intent();
             i.setType("image/*");
@@ -61,20 +65,24 @@ public class UploadBookForSaleActivity extends AppCompatActivity {
         });
 
         uploadBook.setOnClickListener(v -> {
-
-            final StorageReference reference = storageReference.child(bookId+"."+getExtension(imageUri));
+            //Getting the image extension
+                final StorageReference reference = storageReference.child(bookId+"."+getExtension(imageUri));
 
             reference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    //Get the image download link
                     reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
                             url = uri.toString();
-                            BookForSale bookForSale = new BookForSale(bookId, titleBookUpload.getText().toString(), authorBookUpload.getText().toString(),
+                            //Create new BookForSale object with all the book details and image url
+                            BookForSale bookForSale = new BookForSale(bookId, titleBookUpload.getText().toString(),
+                                    authorBookUpload.getText().toString(),
                                     isbnBookUpload.getText().toString(), descBookUpload.getText().toString(), url);
                             databaseReference.child(bookId).setValue(bookForSale);
-                            Toast.makeText(UploadBookForSaleActivity.this, "Book for sale added successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UploadBookForSaleActivity.this, "Book for sale added successfully",
+                                    Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(UploadBookForSaleActivity.this, LibraryActivity.class);
                             startActivity(i);
 
@@ -83,6 +91,7 @@ public class UploadBookForSaleActivity extends AppCompatActivity {
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
+                        //If unsuccessful delete the storage reference
                         public void onFailure(@NonNull Exception e) {
                             reference.delete();
                         }

@@ -3,6 +3,7 @@ package com.example.studentapp;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+//This class is used to save books into university library
 public class Book implements Parcelable {
     private String bookId, bookTitle, bookAuthor, bookISBN, bookDescription, bookImgUrl, bookCategory;
     boolean canReserve;
@@ -115,4 +116,6 @@ public class Book implements Parcelable {
         dest.writeString(bookImgUrl);
         dest.writeString(bookCategory);
     }
+
+
 }

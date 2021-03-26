@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//This class is used to display forum posts related to Academic Life topic
 public class ForumAcademicActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -35,6 +36,8 @@ public class ForumAcademicActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(ForumAcademicActivity.this));
         newPostButton = findViewById(R.id.newAcademicPost);
 
+
+        //All posts posted on this page will be saved under Academic Life category
         newPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +47,7 @@ public class ForumAcademicActivity extends AppCompatActivity {
             }
         });
 
+        //Getting the database reference on where these posts will be saved
         databaseReference = FirebaseDatabase.getInstance().getReference("forum_academic_life");
         populateRecyclerView();
         databaseReference.addListenerForSingleValueEvent(listener);

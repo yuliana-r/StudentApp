@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//This class is used to display forum posts related to the Latest News topic
 public class ForumLatestNewsActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -36,6 +37,7 @@ public class ForumLatestNewsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(ForumLatestNewsActivity.this));
         newPostButton = findViewById(R.id.newLatestNewPost);
 
+        //All posts posted on this page will be saved under Latest News category
         newPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +47,7 @@ public class ForumLatestNewsActivity extends AppCompatActivity {
             }
         });
 
+        //Getting the database reference on where these posts will be saved
         databaseReference = FirebaseDatabase.getInstance().getReference("forum_latest_news");
         populateRecyclerView();
         databaseReference.addListenerForSingleValueEvent(listener);

@@ -3,6 +3,7 @@ package com.example.studentapp;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+//This class is used to store information and upload books for sale by users
 public class BookForSale implements Parcelable {
     private String bookId, bookTitle, bookAuthor, bookISBN, bookDescription, bookImgUrl;
 

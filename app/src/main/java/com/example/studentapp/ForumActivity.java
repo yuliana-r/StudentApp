@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+//This activity helps the user to navigate through different categories/topics in the Forum
 public class ForumActivity extends AppCompatActivity {
 
     private Button latestNews, academicBtn, offTopicBtn, rNgBtn, faqBtn;

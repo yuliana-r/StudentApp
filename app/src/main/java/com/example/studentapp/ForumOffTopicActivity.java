@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//This class is used to display forum posts related to Off-topic topic
 public class ForumOffTopicActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -36,6 +37,7 @@ public class ForumOffTopicActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(ForumOffTopicActivity.this));
         newPostButton = findViewById(R.id.newOffTopicPost);
 
+        //All posts posted on this page will be saved under Off-topic category
         newPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +47,7 @@ public class ForumOffTopicActivity extends AppCompatActivity {
             }
         });
 
+        //Getting the database reference on where these posts will be saved
         databaseReference = FirebaseDatabase.getInstance().getReference("forum_offtopic");
         populateRecyclerView();
         databaseReference.addListenerForSingleValueEvent(listener);

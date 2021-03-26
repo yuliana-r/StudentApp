@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+//This activity is used to display student's timetable for current semester
+
 public class TimetableActivity extends AppCompatActivity {
     ImageView timetable;
 

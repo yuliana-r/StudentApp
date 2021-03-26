@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+//This activity helps the user to navigate through campus floor maps by pressing on buttons
 public class CampusMapActivity extends AppCompatActivity {
     ImageView floorMap;
     Button floorGround, floorFirst, floorSecond, floorThird;

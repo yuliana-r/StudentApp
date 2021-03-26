@@ -1,5 +1,6 @@
 package com.example.studentapp;
 
+//This class is used to store information about students
 public class Student {
     public String studentEmail;
     public String studentPassword;

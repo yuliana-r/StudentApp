@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+//Activity to familiarise the user with FAQ
 public class ForumFAQActivity extends AppCompatActivity {
 
     @Override

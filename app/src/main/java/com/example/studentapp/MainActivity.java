@@ -20,7 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-
+//MainActivity is the launcher activity and it takes the user to the Sign in page
 public class MainActivity extends AppCompatActivity {
     private EditText emailEt, passwordEt;
     private Button signInButton;
@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         signInButton = findViewById(R.id.signInButton);
         progressDialog = new ProgressDialog(this);
         registerTv = findViewById(R.id.textViewRegister);
+
+        //Signs the user in
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Takes user to Registration page
         registerTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,14 +56,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    //Signs the user in
     private void Login() {
         String email = emailEt.getText().toString();
         String password = passwordEt.getText().toString();
-        if(TextUtils.isEmpty(email)) {
+
+        //Checks for empty Email and Password fields and displays error message if applicable
+        if (TextUtils.isEmpty(email)) {
             emailEt.setError("Please enter your email address");
             return;
-        }
-        else if(TextUtils.isEmpty(password)) {
+        } else if (TextUtils.isEmpty(password)) {
             passwordEt.setError("Please enter your password");
             return;
         }
@@ -68,16 +74,19 @@ public class MainActivity extends AppCompatActivity {
         progressDialog.setMessage("Please wait...");
         progressDialog.show();
         progressDialog.setCanceledOnTouchOutside(false);
+
+        //Signs the user in
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()) {
+                if (task.isSuccessful()) {
+                    //Takes the user to Dashboard on successful sign in
                     Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
                     startActivity(intent);
                     finish();
-                }
-                else{
+                } else {
+                    //Prompts error message and takes the user back to Sign in page
                     Toast.makeText(MainActivity.this, "Login unsuccessful, please try again", Toast.LENGTH_LONG).show();
                 }
                 progressDialog.dismiss();
@@ -85,9 +94,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Checks the email address format
     private Boolean isValidEmail(CharSequence target) {
         return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
     }
-    }
+}
 
 

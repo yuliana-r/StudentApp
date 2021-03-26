@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+//This class is used to register the user and store the detailsto Firebase
 public class RegisterActivity extends AppCompatActivity {
     private EditText emailEt, fNameEt, lNameEt, sIdEt, passwordEt1, passwordEt2;
     private Button registerButton;
@@ -72,6 +73,8 @@ public class RegisterActivity extends AppCompatActivity {
         String sId = sIdEt.getText().toString();
         String password1 = passwordEt1.getText().toString();
         String password2 = passwordEt2.getText().toString();
+
+        //Checking for empty fields, matching password and correct email address format
         if(TextUtils.isEmpty(email)) {
             emailEt.setError("Please enter your email address");
             return;
@@ -111,6 +114,8 @@ public class RegisterActivity extends AppCompatActivity {
         progressDialog.setMessage("Please wait...");
         progressDialog.show();
         progressDialog.setCanceledOnTouchOutside(false);
+
+        //If successful the user will be created
         firebaseAuth.createUserWithEmailAndPassword(email, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -121,6 +126,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Student student = new Student(emailEt.getText().toString(), passwordEt1.getText().toString(),
                                     fNameEt.getText().toString(), lNameEt.getText().toString(), sIdEt.getText().toString());
 
+                            //All users' details will be saved into the "student" node
                             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("student");
                             databaseReference.child(firebaseAuth.getUid()).setValue(student);
 
@@ -130,6 +136,7 @@ public class RegisterActivity extends AppCompatActivity {
                             finish();
                         }
                         else{
+                            //If unsuccessful, an error message will be displayed and user will be asked to try again
                             Toast.makeText(RegisterActivity.this, "Registration unsuccessful, please try again", Toast.LENGTH_LONG).show();
                         }
                         progressDialog.dismiss();

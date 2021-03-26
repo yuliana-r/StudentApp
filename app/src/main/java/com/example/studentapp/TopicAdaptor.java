@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+//This class is used to display information on topic posts e.g. Topic subject, author, posted date and post content
 public class TopicAdaptor extends RecyclerView.Adapter<TopicAdaptor.TopicHolder> {
 
     ArrayList<ForumPost> forumPosts;

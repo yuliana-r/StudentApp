@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +22,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import static com.example.studentapp.Review.getBookID;
+
+//Activity that displays information/details about a chosen book in the library
 public class BookDetailsActivity extends AppCompatActivity {
 
     TextView bookDetTitle, bookDetAuthor, bookDetISBN, bookDetDesc;
@@ -53,6 +55,7 @@ public class BookDetailsActivity extends AppCompatActivity {
         cancelBook = findViewById(R.id.cancelReservationButton);
         addReview = findViewById(R.id.addReviewButton);
 
+        //Retrieves book information
         bookDetTitle.setText(book.getBookTitle());
         bookDetAuthor.setText(book.getBookAuthor());
         bookDetISBN.setText(book.getBookISBN());
@@ -72,6 +75,7 @@ public class BookDetailsActivity extends AppCompatActivity {
             Toast.makeText(BookDetailsActivity.this, "You have successfully cancelled the reservation.", Toast.LENGTH_LONG).show();
         });
 
+        //Takes user to UploadReviewActivity
         addReview.setOnClickListener(v -> {
             Intent i1 = new Intent(BookDetailsActivity.this, UploadReviewActivity.class);
             startActivity(i1);
@@ -83,12 +87,13 @@ public class BookDetailsActivity extends AppCompatActivity {
         query.addListenerForSingleValueEvent(listener);
     }
 
+    //Adding a ValueEventListener for library books reviews
     ValueEventListener listener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
-            for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
-            Review review = dataSnapshot.getValue(Review.class);
-            reviews.add(review);
+            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                Review review = dataSnapshot.getValue(Review.class);
+                reviews.add(review);
             }
 
             reviewAdaptor = new ReviewAdaptor(reviews);

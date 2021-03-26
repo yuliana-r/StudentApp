@@ -13,6 +13,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+//BookAdaptor that displays a specified book for sale
 public class BookForSaleAdaptor extends RecyclerView.Adapter<BookForSaleAdaptor.BookHolder> {
     ArrayList<BookForSale> bookForSale;
     BookHolder.BookInterface listener;

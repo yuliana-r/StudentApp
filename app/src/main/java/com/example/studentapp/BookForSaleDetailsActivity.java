@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
+//Activity that displays information/details about a chosen book on the Books for sale page
 public class BookForSaleDetailsActivity extends AppCompatActivity {
 
     TextView bookSaleTitle, bookSaleAuthor, bookSaleISBN, bookSaleDesc;
@@ -32,6 +33,7 @@ public class BookForSaleDetailsActivity extends AppCompatActivity {
         bookSaleImage = findViewById(R.id.bookForSaleDetailsImage);
         messageUser = findViewById(R.id.messageUserButton);
 
+        //Retrieves book for sale's information
         bookSaleTitle.setText(bookForSale.getBookTitle());
         bookSaleAuthor.setText(bookForSale.getBookAuthor());
         bookSaleISBN.setText(bookForSale.getBookISBN());

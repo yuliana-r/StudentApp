@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+//BookAdaptor that displays a specified library book
 public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.BookHolder> {
     ArrayList<Book> books;
     BookHolder.BookInterface listener;
@@ -31,6 +32,7 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.BookHolder> {
         return new BookHolder(view, listener);
     }
 
+    //Book info displayed will be image, title, author, description and ISBN
     @Override
     public void onBindViewHolder(@NonNull BookHolder bookHolder, int i) {
         Picasso.get().load(books.get(i).getBookImgUrl()).fit().into(bookHolder.bookcardImage);

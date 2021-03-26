@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//This activity allows the user to browse book categories, view and upload books for sale
 public class LibraryActivity extends AppCompatActivity implements BookAdaptor.BookHolder.BookInterface {
 
     Button uploadBook;

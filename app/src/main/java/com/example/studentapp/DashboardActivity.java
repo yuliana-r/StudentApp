@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+//This activity helps user navigate through different pages within the app
 public class DashboardActivity extends AppCompatActivity {
     TextView campusMapTv, timetableTv, libraryTv, forumTv, activitiesTv, moodleTv;
     private Button logoutButton;
@@ -73,8 +74,6 @@ public class DashboardActivity extends AppCompatActivity {
         });
 
 
-
-
         moodleTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +83,7 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
-
+        //Logs the user out of the app
         logoutButton = findViewById(R.id.logOutButton);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override

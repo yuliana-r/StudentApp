@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//Activity to help user navigate through library book categories
 public class LibraryCategoryActivity extends AppCompatActivity implements  BookAdaptor.BookHolder.BookInterface {
 
     RecyclerView recyclerView;
@@ -42,6 +43,7 @@ public class LibraryCategoryActivity extends AppCompatActivity implements  BookA
         String category = i.getStringExtra("category");
         bookCategory.setText(category);
 
+        //Display books from "books_in_library" node for a certain category
         databaseReference = FirebaseDatabase.getInstance().getReference("books_in_library").orderByChild("bookCategory").equalTo(category);
         databaseReference.addListenerForSingleValueEvent(valueEventListener);
     }
